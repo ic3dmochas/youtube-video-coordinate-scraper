@@ -9,4 +9,3 @@ winget install ffmpeg
 ```
 
 frames output to ~/bin/frames
-```
