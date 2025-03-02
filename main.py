@@ -22,16 +22,7 @@ def download():
             'preferedformat': 'mp4', 
         }],
     }
-    
     with yt_dlp.YoutubeDL(ydl_opts) as ydl:
-        info_dict = ydl.extract_info(url, download=False)
-        formats = info_dict.get('formats', [])
-        valid_format = any(fmt['format_id'] == '609' for fmt in formats)
-        
-        if not valid_format:
-            print("this video doesn't support the resolution required.")
-            return
-        
         ydl.download([url])
 
     if not os.path.exists(vid_file):
@@ -47,7 +38,6 @@ def download():
             print(f"ffmpeg error: {e.stderr.decode()}")
         else:
             print(f"ffmpeg error: {e}")
-
 
 def checkf3(frame_path):
     img = cv2.imread(frame_path)
