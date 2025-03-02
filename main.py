@@ -52,3 +52,4 @@ def checkall():
 
 download()
 checkall()
+input()
