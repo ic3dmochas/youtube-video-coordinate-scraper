@@ -10,5 +10,10 @@ winget install ffmpeg
 pip install opencv-python yt-dlp numpy ffmpeg-python
 ```
 
-frames output to ~/bin/frames
-video output to ~/bin/video.mp4
+frames output to ~/_internal/bin/frames/
+
+video output to ~/_internal/bin/video.mp4/
+
+before running, delete ~/_internal/bin/
+
+win10/win11 only
