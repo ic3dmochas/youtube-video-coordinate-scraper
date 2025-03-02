@@ -32,7 +32,7 @@ def download():
                 ydl_opts['format'] = fmt['format_id']
                 ydl.download([url])
                 break
-
+            
     if not os.path.exists(vid_file):
         print(f"video file not found at {vid_file}")
         return
