@@ -6,7 +6,7 @@ import ffmpeg
 import time
 import numpy as np
 
-version = "v1.2.1"
+version = "v1.2.0"
 
 print(f"[log]  F3 Scraper {version} by @ic3dwtf")
 url = input(f"[log]  url: ")
