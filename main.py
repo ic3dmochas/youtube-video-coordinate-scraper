@@ -16,14 +16,22 @@ os.makedirs(frames_dir, exist_ok=True)
 def download():
     ydl_opts = {
         'outtmpl': vid_file,
-        'format': '609',
         'postprocessors': [{ 
             'key': 'FFmpegVideoConvertor',
             'preferedformat': 'mp4', 
         }],
+        'quiet': True,
     }
+
     with yt_dlp.YoutubeDL(ydl_opts) as ydl:
-        ydl.download([url])
+        info_dict = ydl.extract_info(url, download=False)
+        formats = info_dict.get('formats', [])
+        
+        for fmt in formats:
+            if fmt.get('height') == 720 and fmt.get('ext') in 'mp4':
+                ydl_opts['format'] = fmt['format_id']
+                ydl.download([url])
+                break
 
     if not os.path.exists(vid_file):
         print(f"video file not found at {vid_file}")
@@ -52,4 +60,4 @@ def checkall():
 
 download()
 checkall()
-input()
+input("finished! press enter to exit . . .")
